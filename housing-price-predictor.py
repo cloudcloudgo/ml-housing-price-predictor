@@ -6,7 +6,7 @@ from sklearn.tree import DecisionTreeRegressor
 
 
 # Path of the file to read
-iowa_file_path = '../input/home-data-for-ml-course/train.csv'
+iowa_file_path = './input/train.csv'
 
 home_data = pd.read_csv(iowa_file_path)
 # Create target object and call it y
@@ -28,11 +28,6 @@ val_predictions = iowa_model.predict(val_X)
 val_mae = mean_absolute_error(val_predictions, val_y)
 print("Validation MAE: {:,.0f}".format(val_mae))
 
-# Set up code checking
-from learntools.core import binder
-binder.bind(globals())
-from learntools.machine_learning.ex5 import *
-print("\nSetup complete")
 
 
 
@@ -66,9 +61,6 @@ print(min_mae)
 print(min_nodes, min_mae)
 best_tree_size = min_nodes
 
-# Check your answer
-step_1.check()
-
 
 # Fill in argument to make optimal size and uncomment
 final_model = DecisionTreeRegressor(max_leaf_nodes = best_tree_size)
@@ -76,5 +68,3 @@ final_model = DecisionTreeRegressor(max_leaf_nodes = best_tree_size)
 # fit the final model and uncomment the next two lines
 final_model.fit(X, y)
 
-# Check your answer
-step_2.check()
