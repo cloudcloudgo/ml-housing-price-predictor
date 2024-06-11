@@ -53,9 +53,9 @@ def min_finder(model_1, model_2):
     (model_a_name, mae_a) = model_1
     (model_b_name, mae_b) = model_2
     if(mae_a < mae_b):
-        return a
+        return model_1
     else:
-        return b
+        return model_2
     
 (model_name, min_mae) = reduce(min_finder, mae_list)
 
