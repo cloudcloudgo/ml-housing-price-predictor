@@ -49,15 +49,15 @@ for i in range(0, len(models)):
 
 mae_list = [(model_name, score_model(model, X_train, X_valid, y_train, y_valid)) for model_name, model in models]
 
-def min_finder(a,b):
-    (model_a, mae_a) = a
-    (model_b, mae_b) = b
+def min_finder(model_1, model_2):
+    (model_a_name, mae_a) = model_1
+    (model_b_name, mae_b) = model_2
     if(mae_a < mae_b):
         return a
     else:
         return b
     
-(model, min_mae) = reduce(min_finder, mae_list)
+(model_name, min_mae) = reduce(min_finder, mae_list)
 
 
-print("Best model is %s with MAE %d" % (model, min_mae))
+print("Best model is %s with MAE %d" % (model_name, min_mae))
